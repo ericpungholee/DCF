@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCF calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+<body>
+    <div style="margin-top: 50px" class="ui container">
+    <h1 class="ui center aligned header">DCF calculator</h1>
+    <form action="/calculate" method="post">
+        <br>
+        <h2>Range of time</h2>
+        <input type="number" name="time" step="any" min="1" placeholder="Range of time">
+        <br>
+        <h2>Current free cash flow in thousands</h2>
+        <input type="number" name="fcf" step="0.01" placeholder="Current free cash flow in thousands">
+        <br>
+        <h2>Growth rate</h2>
+        <input type="number" name="growthrate" step="0.01" placeholder="Growth rate">
+        <br>
+        <h2>Discount rate</h2>
+        <input type="number" name="discountrate" step="0.01" placeholder="Discount rate">
+        <br>
+        <h2>Avrage free cash flow multiple</h2>
+        <input type="number" name="avg_fcf_multiple" step="0.01" placeholder="Avrage free cash flow multiple">
+        <br>
+        <h2>Shares outstanding</h2>
+        <input type="number" name="shares" step="0.01" min="1" value="1" placeholder="Shares outstanding">
+        <br>
+        <br>
+        <input class="ui green button" type="submit" value="calculate" id="calculate">
+        <br>
+        {% for message in get_flashed_messages() %}
+            <h2> {{message}} </h2>
+        {% endfor %}
+        <h2> {{message}} </h2>
+        <br>
+    </form>
+    </div>
+</body>
+</html>

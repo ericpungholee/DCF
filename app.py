@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, flash
-import gunicorn
+
 
 app = Flask(__name__)
 app.secret_key = "wastogi999"
@@ -46,9 +46,9 @@ def dcf():
         intrinsic_value = intrinsic_value / shares
 
     
-    flash(f"Intrinsic value: ${intrinsic_value}B")
+    flash(f"Intrinsic value: ${intrinsic_value:.2f}B")
     return render_template("index.html")
 
 
 if __name__ == "__main__":
-    gunicorn.run()
+    app.run()

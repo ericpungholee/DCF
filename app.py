@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, flash
 
 
 app = Flask(__name__)
-app.secret_key = "wastogi999"
+app.secret_key = ""
 
 @app.route("/", methods=["POST", "GET"])
 def index():
